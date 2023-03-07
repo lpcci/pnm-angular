@@ -10,4 +10,6 @@ export class HeaderBarComponent implements OnInit {
   constructor(public router: Router) {}
 
   ngOnInit(): void {}
+
+  public logout(): void {}
 }
