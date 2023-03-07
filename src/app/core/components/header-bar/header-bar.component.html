@@ -1,3 +1,7 @@
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"
+  rel="stylesheet"
+/>
 <mat-toolbar>
   <img src="../../../../assets/img/pnmLogo.png" />
   <button
@@ -5,13 +9,16 @@
     [routerLink]="['/vehicles']"
     routerLinkActive="active-link"
   >
-    <mat-icon>local_shipping</mat-icon>&nbsp;Véhicules
+    <mat-icon fontSet="material-icons-outlined">local_shipping</mat-icon
+    >&nbsp;Véhicules
   </button>
   <button mat-button [routerLink]="['/lists']" routerLinkActive="active-link">
-    <mat-icon>fact_check</mat-icon>&nbsp;Listes
+    <mat-icon fontSet="material-icons-outlined">fact_check_outlined</mat-icon
+    >&nbsp;Listes
   </button>
   <button mat-button [routerLink]="['/users']" routerLinkActive="active-link">
-    <mat-icon>group</mat-icon>&nbsp;Utilisateurs
+    <mat-icon fontSet="material-icons-outlined">group</mat-icon
+    >&nbsp;Utilisateurs
   </button>
   <button mat-button (click)="logout()" class="logout">Déconnexion</button>
 </mat-toolbar>
