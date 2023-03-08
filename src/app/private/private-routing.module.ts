@@ -1,21 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ListsComponent } from './lists/lists.component';
+import { UsersComponent } from './users/users.component';
+import { VehiclesComponent } from './vehicles/vehicles.component';
 
 const routes: Routes = [
   {
     path: 'vehicles',
-    loadChildren: () =>
-      import('./vehicles/vehicles.module').then((m) => m.VehiclesModule),
+    pathMatch: 'full',
+    component: VehiclesComponent,
   },
   {
     path: 'lists',
-    loadChildren: () =>
-      import('./lists/lists.module').then((m) => m.ListsModule),
+    pathMatch: 'full',
+    component: ListsComponent,
   },
   {
     path: 'users',
-    loadChildren: () =>
-      import('./users/users.module').then((m) => m.UsersModule),
+    pathMatch: 'full',
+    component: UsersComponent,
   },
   {
     path: '',
@@ -26,6 +29,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PrivateRoutingModule { }
+export class PrivateRoutingModule {}
