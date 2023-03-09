@@ -16,8 +16,8 @@ class="authentication-card-container"
       [formGroup]="loginForm"
     >
       <mat-form-field>
-        <mat-label>Nom d'utilisateur</mat-label>
-        <input matInput formControlName="username" />
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
       </mat-form-field>
       <mat-form-field>
         <mat-label>Mot de passe</mat-label>
@@ -26,7 +26,7 @@ class="authentication-card-container"
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="onSubmit()">
+    <button mat-raised-button (click)="onSubmit(loginForm)">
       Se connecter
     </button>
   </mat-card-actions>
