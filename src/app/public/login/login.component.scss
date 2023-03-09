@@ -1,0 +1,76 @@
+.authentication-card {
+    width: 30%;
+    margin: 0 auto;
+    background-color: #3880ff;
+    box-shadow: 12px 12px 2px 1px rgba(75, 75, 97, 0.2);
+    padding: 2%;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #3880ff;
+
+}
+.authentication-card-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+
+.title {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    margin-right: 2rem;
+    border-radius: 15px;
+  }
+
+.image
+{
+    width: 100%;
+    margin-left: 39%;
+    border-radius: 15px;
+
+}
+
+button {
+    background-color: #062f77;
+    width: 50%;
+}
+
+::ng-deep.mat-form-field {
+    width: 50% !important;
+}
+
+::ng-deep html, body { height: 100%;  overflow: hidden !important}
+::ng-deep .mat-focused .mat-form-field-label {
+/*change color of label*/
+    color: white !important;
+}
+::ng-deep.mat-form-field-underline {
+/*change color of underline*/
+    background-color: white !important;
+} 
+
+::ng-deep.mat-focused .mat-form-field-ripple {
+/*change color of underline when focused*/
+    background-color: white !important;
+}
+
+// mat-input caret color
+::ng-deep  .mat-input-element {
+    caret-color: white !important;
+}
