@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './shared/service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'pnm-angular';
   isAuth = false;
+
+  constructor(private authenticationService: AuthService){
+    console.log(this.authenticationService.getIsAuth());
+    this.authenticationService.getIsAuth().subscribe(value => {
+      this.isAuth = value;
+    });
+  }
 }
