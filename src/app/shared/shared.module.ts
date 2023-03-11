@@ -6,6 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const MODULES = [
   CommonModule,
@@ -15,6 +19,10 @@ const MODULES = [
   MatButtonModule,
   MatCardModule,
   MatDividerModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDialogModule,
+  ReactiveFormsModule,
 ];
 
 @NgModule({

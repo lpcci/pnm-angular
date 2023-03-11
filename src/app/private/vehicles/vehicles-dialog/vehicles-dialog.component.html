@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>
+  {{ data.vehicle ? "Editer le véhicule" : "Nouveau véhicule" }}
+</h2>
+<form [formGroup]="vehicleForm" (ngSubmit)="vehicleForm.valid && submit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Libellé</mat-label>
+    <input matInput formControlName="label" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Image</mat-label>
+    <input matInput formControlName="image" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Capacité</mat-label>
+    <input matInput formControlName="capacity" />
+  </mat-form-field>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close type="button">Annuler</button>
+    <button mat-button type="submit" [disabled]="!vehicleForm.valid">
+      {{ data.vehicle ? "Mettre à jour" : "Ajouter" }}
+    </button>
+  </mat-dialog-actions>
+</form>
