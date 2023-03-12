@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  settings: {
+    production: false,
+    protocole: 'http://',
+    url: '127.0.0.1',
+    port: '8000',
+    YOUR_API_KEY: 'GOOGLE_API_KEY',
+  },
 };
 
 /*

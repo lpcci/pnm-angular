@@ -14,7 +14,7 @@
   <mat-divider></mat-divider>
   <mat-card-content>
     <div class="tab">
-      <table *ngIf="" mat-table [dataSource]="vehicles">
+      <table *ngIf="vehicles.length > 0" mat-table [dataSource]="vehicles">
         <ng-container matColumnDef="vehicle.label">
           <th mat-header-cell *matHeaderCellDef>Libellé</th>
           <td mat-cell *matCellDef="let element">

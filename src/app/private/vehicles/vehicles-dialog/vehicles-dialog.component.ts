@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Vehicle } from 'src/app/shared/models/vehicle.model';
 
 @Component({
   selector: 'app-vehicles-dialog',
@@ -11,7 +12,7 @@ export class VehiclesDialogComponent implements OnInit {
   public vehicleForm: FormGroup;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { vehicle: any },
+    @Inject(MAT_DIALOG_DATA) public data: { vehicle: Vehicle },
     private dialogRef: MatDialogRef<VehiclesDialogComponent>
   ) {}
 
@@ -38,7 +39,7 @@ export class VehiclesDialogComponent implements OnInit {
     });
   }
 
-  public getVehicleForm(): any {
+  public getVehicleForm(): Vehicle {
     return {
       label: this.vehicleForm.get('label').value,
       description: this.vehicleForm.get('description').value,

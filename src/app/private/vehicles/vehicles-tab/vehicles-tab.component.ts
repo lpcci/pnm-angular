@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { Vehicle } from 'src/app/shared/models/vehicle.model';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { VehiclesDialogComponent } from '../vehicles-dialog/vehicles-dialog.component';
+import { VehicleService } from 'src/app/core/services/vehicle.service';
 @Component({
   selector: 'app-vehicles-tab',
   templateUrl: './vehicles-tab.component.html',
@@ -25,9 +26,16 @@ export class VehiclesTabComponent implements OnInit, OnDestroy {
   private _put: Subscription;
   private _post: Subscription;
 
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    private dialog: MatDialog,
+    private vehicleService: VehicleService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._vehicles = this.vehicleService
+      .getVehicleList()
+      .subscribe((vehicle) => (this.vehicles = vehicle));
+  }
 
   public addVehicle(): void {
     const dialogRef: MatDialogRef<VehiclesDialogComponent> = this.dialog.open(
@@ -44,7 +52,7 @@ export class VehiclesTabComponent implements OnInit, OnDestroy {
       .afterClosed()
       .subscribe((data: { valid: boolean; vehicle: any }) => {
         if (data && data.valid) {
-          /* this.vehicleService.addVehicle(data.vehicle).subscribe(); */
+          this.vehicleService.addVehicle(data.vehicle).subscribe();
         }
       });
   }
@@ -64,14 +72,14 @@ export class VehiclesTabComponent implements OnInit, OnDestroy {
       .afterClosed()
       .subscribe((data: { valid: boolean; vehicle: any }) => {
         if (data && data.valid) {
-          /* this.vehicleService.updateVehicle(data.vehicle).subscribe(); */
+          this.vehicleService.updateVehicle(data.vehicle).subscribe();
         }
       });
   }
 
   public deleteVehicle(vehicle: any): void {
     if (confirm('Voulez-vous vraiment supprimer le véhicule ?')) {
-      /* this.vehicleService.deleteDelete(vehicle).subscribe(); */
+      this.vehicleService.deleteVehicle(vehicle).subscribe();
     }
   }
 
