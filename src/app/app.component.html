@@ -1,2 +1,4 @@
-<app-header-bar></app-header-bar>
-<div class="margin"><router-outlet></router-outlet></div>
+<app-header-bar *ngIf="isAuth"></app-header-bar>
+<div class="margin">
+  <router-outlet></router-outlet>
+</div>

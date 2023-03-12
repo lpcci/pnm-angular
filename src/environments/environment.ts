@@ -8,7 +8,6 @@ export const environment = {
     protocole: 'http://',
     url: '127.0.0.1',
     port: '8000',
-    YOUR_API_KEY: 'GOOGLE_API_KEY',
   },
 };
 
