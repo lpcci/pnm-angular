@@ -1,4 +1,4 @@
-.authentication-card {
+/* .authentication-card {
     width: 30%;
     margin: 0 auto;
     background-color: #3880ff;
@@ -53,24 +53,80 @@ button {
 
 ::ng-deep.mat-form-field {
     width: 50% !important;
-}
+ }*/
 
-::ng-deep html, body { height: 100%;  overflow: hidden !important}
-::ng-deep .mat-focused .mat-form-field-label {
 /*change color of label*/
+/* ::ng-deep html, body { height: 100%;  overflow: hidden !important}
+::ng-deep .mat-focused .mat-form-field-label {
     color: white !important;
-}
-::ng-deep.mat-form-field-underline {
-/*change color of underline*/
-    background-color: white !important;
-} 
+} */
 
-::ng-deep.mat-focused .mat-form-field-ripple {
-/*change color of underline when focused*/
+/*change color of underline*/
+/* ::ng-deep.mat-form-field-underline {
     background-color: white !important;
-}
+}  */
+
+/*change color of underline when focused*/
+/* ::ng-deep.mat-focused .mat-form-field-ripple {
+    background-color: white !important;
+} */
 
 // mat-input caret color
-::ng-deep  .mat-input-element {
+/* ::ng-deep  .mat-input-element {
     caret-color: white !important;
+} */
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  margin-top: 12.5% !important;
+  left: 35%;
+  padding: 3rem 0;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+img {
+  width: 12rem;
+}
+
+mat-card-title {
+  padding-bottom: 1rem;
+}
+
+mat-card-content {
+  width: 90%;
+  margin-bottom: 0;
+}
+
+form {
+  display: flex;
+  flex-direction:column;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #043F81;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+  color: rgba(0,0,0,.87);
+}
+
+mat-card-actions {
+  width: 90%;
+}
+
+button {
+  background-color: #043F81;
+  color: white;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #024a9c;
+  color: white;
 }
