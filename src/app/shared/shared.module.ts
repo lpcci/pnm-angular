@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
 
 const MODULES = [
   CommonModule,
@@ -23,6 +24,7 @@ const MODULES = [
   MatInputModule,
   MatDialogModule,
   ReactiveFormsModule,
+  MatTableModule
 ];
 
 @NgModule({
