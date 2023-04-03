@@ -41,7 +41,7 @@ export class AuthService {
           );
           await this.localStorage.saveData('USER', JSON.stringify(res.user));
           this.authSubject.next(true);
-          this.router.navigateByUrl('/home', { replaceUrl: true });
+          this.router.navigateByUrl('/vehicles', { replaceUrl: true });
         }
       })
     );

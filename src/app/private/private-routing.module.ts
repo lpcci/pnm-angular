@@ -21,7 +21,7 @@ const routes: Routes = [
     component: UsersComponent,
   },
   {
-    path: 'home',
+    path: '',
     pathMatch: 'full',
     redirectTo: '/vehicles',
   },

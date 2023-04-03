@@ -4,12 +4,12 @@ import { AuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     loadChildren: () =>
       import('./public/public.module').then((m) => m.PublicModule),
   },
   {
-    path: 'home',
+    path: '',
     loadChildren: () =>
       import('./private/private.module').then((m) => m.PrivateModule),
       canActivate: [AuthGuard] // Il check si il doit montrer l'introduction ou pas
