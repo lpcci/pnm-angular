@@ -1,11 +1,11 @@
 <mat-card>
   <mat-card-title>
     <div class="header">
-      <span>Nos véhicules</span>
+      <span>Nos utilisateurs</span>
       <button
         mat-icon-button
-        (click)="addVehicle()"
-        matTooltip="Ajouter un véhicule"
+        (click)="addUser()"
+        matTooltip="Ajouter un utilisateur"
       >
         <mat-icon>add</mat-icon>
       </button>
@@ -14,46 +14,44 @@
   <mat-divider></mat-divider>
   <mat-card-content>
     <div class="tab">
-      <table *ngIf="vehicles.length > 0" mat-table [dataSource]="vehicles">
-        <ng-container matColumnDef="vehicle.label">
-          <th mat-header-cell *matHeaderCellDef>Libellé</th>
+      <table *ngIf="users.length > 0" mat-table [dataSource]="users">
+        <ng-container matColumnDef="user.name">
+          <th mat-header-cell *matHeaderCellDef>Pseudonyme</th>
           <td mat-cell *matCellDef="let element">
-            {{ element.label }}
+            {{ element.name }}
           </td>
         </ng-container>
-        <ng-container matColumnDef="vehicle.description">
-          <th mat-header-cell *matHeaderCellDef>Description</th>
+        <ng-container matColumnDef="user.firstname">
+          <th mat-header-cell *matHeaderCellDef>Prénom</th>
           <td mat-cell *matCellDef="let element">
-            {{ element.description | slice : 0 : 120 }}...
+            {{ element.firstname }}
           </td>
         </ng-container>
-        <ng-container matColumnDef="vehicle.image">
-          <th mat-header-cell *matHeaderCellDef>Image</th>
+        <ng-container matColumnDef="user.lastname">
+          <th mat-header-cell *matHeaderCellDef>Nom</th>
           <td mat-cell *matCellDef="let element">
-            {{ element.image }}
+            {{ element.lastname }}
           </td>
         </ng-container>
-        <ng-container matColumnDef="vehicle.capacity">
-          <th mat-header-cell *matHeaderCellDef>Capacité</th>
+        <ng-container matColumnDef="user.email">
+          <th mat-header-cell *matHeaderCellDef>E-mail</th>
           <td mat-cell *matCellDef="let element">
-            {{ element.capacity }}
+            {{ element.email }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="user.is_admin">
+          <th mat-header-cell *matHeaderCellDef>Administrateur</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.is_admin }}
           </td>
         </ng-container>
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef>Action</th>
           <td mat-cell *matCellDef="let element">
-            <button
-              mat-icon-button
-              type="button"
-              (click)="editVehicle(element)"
-            >
+            <button mat-icon-button type="button" (click)="editUser(element)">
               <mat-icon>edit</mat-icon>
             </button>
-            <button
-              mat-icon-button
-              type="button"
-              (click)="deleteVehicle(element)"
-            >
+            <button mat-icon-button type="button" (click)="deleteUser(element)">
               <mat-icon>delete</mat-icon>
             </button>
           </td>

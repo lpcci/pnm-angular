@@ -11,6 +11,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
 
 const MODULES = [
   CommonModule,
@@ -24,7 +26,9 @@ const MODULES = [
   MatInputModule,
   MatDialogModule,
   ReactiveFormsModule,
-  MatTableModule
+  MatTableModule,
+  MatSelectModule,
+  MatRadioModule
 ];
 
 @NgModule({

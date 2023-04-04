@@ -1,21 +1,21 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Vehicle } from 'src/app/shared/models/vehicle.model';
+import { User } from 'src/app/shared/models/user.model';
 import { LocalStorageService } from 'src/app/shared/service/local-storage.service';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class VehicleService {
+export class UserService {
   private readonly BASE_URL: string = `${environment.settings.protocole}${environment.settings.url}:${environment.settings.port}/api`;
   private accessToken: any;
 
   constructor(private http: HttpClient, private localStorage: LocalStorageService) {}
 
-  public getVehicleList(): Observable<any> {
-    const url: string = `${this.BASE_URL}/vehicle`;
+  public getUserList(): Observable<any> {
+    const url: string = `${this.BASE_URL}/user`;
     this.accessToken = this.localStorage.getData('ACCESS_TOKEN');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -24,29 +24,29 @@ export class VehicleService {
     return this.http.get(url, { headers: headers });
   }
 
-  public addVehicle(vehicle: Vehicle): Observable<any> {
-    const url: string = `${this.BASE_URL}/vehicle`;
+  public addUser(user: User): Observable<any> {
+    const url: string = `${this.BASE_URL}/user`;
     this.accessToken = this.localStorage.getData('ACCESS_TOKEN');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.accessToken}`
     });
-    return this.http.post(url, vehicle, { headers: headers })
+    return this.http.post(url, user, { headers: headers })
   }
 
-  public updateVehicle(vehicle: Vehicle): Observable<any> {
-    const url: string = `${this.BASE_URL}/vehicle/${vehicle.id}`;
+  public updateUser(user: User): Observable<any> {
+    const url: string = `${this.BASE_URL}/user/${user.id}`;
     this.accessToken = this.localStorage.getData('ACCESS_TOKEN');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.accessToken}`
     });
     return this.http
-      .put(url, vehicle, { headers: headers })
+      .put(url, user, { headers: headers })
   }
 
-  public deleteVehicle(vehicle: Vehicle): Observable<any> {
-    const url: string = `${this.BASE_URL}/vehicle/${vehicle.id}`;
+  public deleteUser(user: User): Observable<any> {
+    const url: string = `${this.BASE_URL}/user/${user.id}`;
     this.accessToken = this.localStorage.getData('ACCESS_TOKEN');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
