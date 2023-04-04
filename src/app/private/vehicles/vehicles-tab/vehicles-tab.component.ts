@@ -52,7 +52,7 @@ export class VehiclesTabComponent implements OnInit, OnDestroy {
       .afterClosed()
       .subscribe((data: { valid: boolean; vehicle: any }) => {
         if (data && data.valid) {
-          this.vehicleService.addVehicle(data.vehicle).subscribe();
+          this.vehicleService.addVehicle(data.vehicle).subscribe(() => this.fetchData());
         }
       });
   }
@@ -72,15 +72,21 @@ export class VehiclesTabComponent implements OnInit, OnDestroy {
       .afterClosed()
       .subscribe((data: { valid: boolean; vehicle: any }) => {
         if (data && data.valid) {
-          this.vehicleService.updateVehicle(data.vehicle).subscribe();
+          this.vehicleService.updateVehicle(data.vehicle).subscribe(() => this.fetchData());
         }
       });
   }
 
   public deleteVehicle(vehicle: any): void {
     if (confirm('Voulez-vous vraiment supprimer le véhicule ?')) {
-      this.vehicleService.deleteVehicle(vehicle).subscribe();
+      this.vehicleService.deleteVehicle(vehicle).subscribe(() => this.fetchData());
     }
+  }
+
+  public fetchData(): void {
+    this._vehicles = this.vehicleService
+      .getVehicleList()
+      .subscribe((vehicle) => (this.vehicles = vehicle));
   }
 
   public ngOnDestroy(): void {

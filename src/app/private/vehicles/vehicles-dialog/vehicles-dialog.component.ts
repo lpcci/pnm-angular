@@ -41,6 +41,7 @@ export class VehiclesDialogComponent implements OnInit {
 
   public getVehicleForm(): Vehicle {
     return {
+      id: this.data.vehicle ? this.data.vehicle.id : null,
       label: this.vehicleForm.get('label').value,
       description: this.vehicleForm.get('description').value,
       image: this.vehicleForm.get('image').value,

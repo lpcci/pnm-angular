@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Vehicle } from 'src/app/shared/models/vehicle.model';
 import { LocalStorageService } from 'src/app/shared/service/local-storage.service';
 import { environment } from 'src/environments/environment';
@@ -31,14 +31,27 @@ export class VehicleService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.accessToken}`
     });
-    return this.http.post(url, { headers: headers });
+    return this.http.post(url, vehicle, { headers: headers })
   }
 
   public updateVehicle(vehicle: Vehicle): Observable<any> {
-    return;
+    const url: string = `${this.BASE_URL}/vehicle/${vehicle.id}`;
+    this.accessToken = this.localStorage.getData('ACCESS_TOKEN');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.accessToken}`
+    });
+    return this.http
+      .put(url, vehicle, { headers: headers })
   }
 
   public deleteVehicle(vehicle: Vehicle): Observable<any> {
-    return;
+    const url: string = `${this.BASE_URL}/vehicle/${vehicle.id}`;
+    this.accessToken = this.localStorage.getData('ACCESS_TOKEN');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.accessToken}`
+    });
+    return this.http.delete(url, { headers: headers });
   }
 }
