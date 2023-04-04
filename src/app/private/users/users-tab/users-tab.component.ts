@@ -57,7 +57,6 @@ export class UsersTabComponent implements OnInit {
   }
 
   public editUser(user: any): void {
-    console.log(user);
     const dialogRef: MatDialogRef<UsersDialogComponent> = this.dialog.open(
       UsersDialogComponent,
       {
