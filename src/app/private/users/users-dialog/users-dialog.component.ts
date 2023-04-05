@@ -37,7 +37,7 @@ export class UsersDialogComponent implements OnInit {
         [Validators.required]
       ),
       is_admin: new FormControl(
-        this.data.user ? this.data.user.email : '',
+        this.data.user ? this.data.user.is_admin : '',
         [Validators.required]
       ),
     });

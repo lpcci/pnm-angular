@@ -18,11 +18,13 @@
     <mat-label>E-mail</mat-label>
     <input matInput formControlName="email" />
   </mat-form-field>
-  <mat-radio-group formControlName="is_admin">
-    <mat-label>Administrateur ?</mat-label>
-    <mat-radio-button value="0">Non</mat-radio-button>
-    <mat-radio-button value="1">Oui</mat-radio-button>
-  </mat-radio-group>
+  <mat-form-field appearance="outline">
+    <mat-label>Administrateur</mat-label>
+    <mat-select formControlName="is_admin">
+      <mat-option [value]="0">Non</mat-option>
+      <mat-option [value]="1">Oui</mat-option>
+    </mat-select>
+  </mat-form-field>
   <mat-dialog-actions>
     <button mat-button mat-dialog-close type="button">Annuler</button>
     <button mat-button type="submit" [disabled]="!userForm.valid">
