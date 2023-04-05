@@ -9,6 +9,8 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
 import { VehiclesDialogComponent } from './vehicles/vehicles-dialog/vehicles-dialog.component';
 import { UsersDialogComponent } from './users/users-dialog/users-dialog.component';
 import { UsersTabComponent } from './users/users-tab/users-tab.component';
+import { ListsTabComponent } from './lists/lists-tab/lists-tab.component';
+import { ListsDialogComponent } from './lists/lists-dialog/lists-dialog.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { UsersTabComponent } from './users/users-tab/users-tab.component';
     VehiclesDialogComponent,
     UsersDialogComponent,
     UsersTabComponent,
+    ListsTabComponent,
+    ListsDialogComponent,
   ],
   imports: [PrivateRoutingModule, SharedModule],
 })
