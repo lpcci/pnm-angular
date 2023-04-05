@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Item } from 'src/app/shared/models/item.model';
 import { List } from 'src/app/shared/models/list.model';
 import { LocalStorageService } from 'src/app/shared/service/local-storage.service';
 import { environment } from 'src/environments/environment';
@@ -21,7 +22,7 @@ export class ListService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.accessToken}`
     });
-    return this.http.get(url, { headers: headers });
+    return this.http.get(url,{ headers: headers });
   }
 
   public addList(list: List): Observable<any> {
@@ -47,6 +48,36 @@ export class ListService {
 
   public deleteList(list: List): Observable<any> {
     const url: string = `${this.BASE_URL}/inventory/${list.id}`;
+    this.accessToken = this.localStorage.getData('ACCESS_TOKEN');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.accessToken}`
+    });
+    return this.http.delete(url, { headers: headers });
+  }
+
+  public getItemList(): Observable<any> {
+    const url: string = `${this.BASE_URL}/item`;
+    this.accessToken = this.localStorage.getData('ACCESS_TOKEN');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.accessToken}`
+    });
+    return this.http.get(url,{ headers: headers });
+  }
+
+  public addItem(item: Item): Observable<any> {
+    const url: string = `${this.BASE_URL}/item`;
+    this.accessToken = this.localStorage.getData('ACCESS_TOKEN');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.accessToken}`
+    });
+    return this.http.post(url, item, { headers: headers })
+  }
+
+  public deleteItem(item: Item): Observable<any> {
+    const url: string = `${this.BASE_URL}/item/${item.id}`;
     this.accessToken = this.localStorage.getData('ACCESS_TOKEN');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

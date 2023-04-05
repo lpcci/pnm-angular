@@ -24,6 +24,13 @@
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef>Action</th>
           <td mat-cell *matCellDef="let element">
+            <button
+              mat-icon-button
+              type="button"
+              (click)="itemsDialog(element)"
+            >
+              <mat-icon>assignment</mat-icon>
+            </button>
             <button mat-icon-button type="button" (click)="editList(element)">
               <mat-icon>edit</mat-icon>
             </button>

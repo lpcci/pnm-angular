@@ -11,6 +11,7 @@ import { UsersDialogComponent } from './users/users-dialog/users-dialog.componen
 import { UsersTabComponent } from './users/users-tab/users-tab.component';
 import { ListsTabComponent } from './lists/lists-tab/lists-tab.component';
 import { ListsDialogComponent } from './lists/lists-dialog/lists-dialog.component';
+import { ItemsDialogComponent } from './lists/items-dialog/items-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ListsDialogComponent } from './lists/lists-dialog/lists-dialog.componen
     UsersTabComponent,
     ListsTabComponent,
     ListsDialogComponent,
+    ItemsDialogComponent,
   ],
   imports: [PrivateRoutingModule, SharedModule],
 })

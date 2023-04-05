@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { ListService } from 'src/app/core/services/list.service';
 import { List } from 'src/app/shared/models/list.model';
 import { ListsDialogComponent } from '../lists-dialog/lists-dialog.component';
+import { ItemsDialogComponent } from '../items-dialog/items-dialog.component';
 
 @Component({
   selector: 'app-lists-tab',
@@ -56,11 +57,24 @@ export class ListsTabComponent implements OnInit {
       });
   }
 
+  public itemsDialog(item: any): void {
+    const dialogRef: MatDialogRef<ItemsDialogComponent> = this.dialog.open(
+      ItemsDialogComponent,
+      {
+        width: '30vw',
+        autoFocus: true,
+        data: {
+          item: item,
+        },
+      }
+    );
+  }
+
   public editList(list: any): void {
     const dialogRef: MatDialogRef<ListsDialogComponent> = this.dialog.open(
       ListsDialogComponent,
       {
-        width: '30vw',
+        width: 'auto',
         autoFocus: true,
         data: {
           list: list,
