@@ -74,7 +74,7 @@ export class ListsTabComponent implements OnInit {
     const dialogRef: MatDialogRef<ListsDialogComponent> = this.dialog.open(
       ListsDialogComponent,
       {
-        width: 'auto',
+        width: '30vw',
         autoFocus: true,
         data: {
           list: list,
