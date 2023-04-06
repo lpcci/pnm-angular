@@ -16,7 +16,7 @@ export class ListService {
   constructor(private http: HttpClient, private localStorage: LocalStorageService) {}
 
   public getListList(): Observable<any> {
-    const url: string = `${this.BASE_URL}/inventory`;
+    const url: string = `${this.BASE_URL}/defaultInventory`;
     this.accessToken = this.localStorage.getData('ACCESS_TOKEN');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -56,12 +56,12 @@ export class ListService {
     return this.http.delete(url, { headers: headers });
   }
 
-  public getItemList(): Observable<any> {
-    const url: string = `${this.BASE_URL}/item`;
+  public getItemList(id?: bigint): Observable<any> {
+    const url: string = `${this.BASE_URL}/inventory/items/${id}`;
     this.accessToken = this.localStorage.getData('ACCESS_TOKEN');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.accessToken}`
+      'Authorization': `Bearer ${this.accessToken}`,
     });
     return this.http.get(url,{ headers: headers });
   }

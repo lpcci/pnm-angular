@@ -12,7 +12,7 @@ const routes: Routes = [
     path: '',
     loadChildren: () =>
       import('./private/private.module').then((m) => m.PrivateModule),
-      canActivate: [AuthGuard] // Il check si il doit montrer l'introduction ou pas
+      canActivate: [AuthGuard]
   },
 ];
 

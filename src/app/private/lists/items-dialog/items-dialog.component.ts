@@ -27,9 +27,8 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
   private dialogRef: MatDialogRef<ItemsDialogComponent>, private listService: ListService) { }
 
   ngOnInit(): void {
-    console.log(this.data.item);
-
     this.initForm();
+    this._items = this.listService.getItemList(this.data.item.id).subscribe((item) => (this.items = item))
   }
 
   public initForm(): void {
@@ -51,7 +50,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
 
   public deleteItem(item: any): void {
     if (confirm(`Voulez-vous vraiment supprimer l'objet ?`)) {
-      this.listService.deleteList(item).subscribe(() => this.fetchData());
+      this.listService.deleteItem(item).subscribe(() => this.fetchData());
     }
   }
 
@@ -66,7 +65,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
 
   public fetchData(): void {
     this._items = this.listService
-      .getItemList()
+      .getItemList(this.data.item.id)
       .subscribe((item) => (this.items = item));
   }
 
