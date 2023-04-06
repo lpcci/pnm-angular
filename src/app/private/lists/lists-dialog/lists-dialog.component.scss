@@ -1,0 +1,16 @@
+mat-form-field {
+  width: 100%;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #043F81;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+  color: rgba(0,0,0,.87);
+}

@@ -1,0 +1,47 @@
+mat-form-field {
+  width: 100%;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #043F81;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+  color: rgba(0,0,0,.87);
+}
+
+.tab {
+  width: 100%;
+
+  table {
+    width: 100%;
+  }
+}
+
+mat-card-title {
+  font-size: 15px
+}
+
+div {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.outlined {
+  height: 52.06px;
+  margin: 0.25em 0;
+}
+
+.outlined:hover {
+  border: solid 2px black
+}
+
+.outlined:disabled {
+  border: solid 1px rgba(0,0,0, 0.06);
+}
